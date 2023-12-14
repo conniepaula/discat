@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Open_Sans } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import { DiscordIcon } from "@/components/icons";
-import Link from "next/link";
+import { Discord } from "@/components/icons";
 import NavLink from "./components/NavLink";
 import Image from "next/image";
 
@@ -30,12 +29,12 @@ export default function RootLayout({
       <body className={openSans.className}>
         <div className="flex h-screen text-gray-100">
           <div className="space-y-2 overflow-y-scroll bg-gray-900 p-3 ">
-            <NavLink href="/">
-              <DiscordIcon className="h-5 w-7" />
+            <NavLink>
+              <Discord className="h-5 w-7" />
             </NavLink>
             <hr className="mx-2 rounded border-t-2 border-t-white/[.06]" />
             {servers.map((server) => (
-              <NavLink key={server.id} href={`/servers/${server.id}`}>
+              <NavLink key={server.id} serverId={server.id}>
                 <Image
                   src={server.img}
                   alt=""
