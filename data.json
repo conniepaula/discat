@@ -14,8 +14,8 @@
           "id": 2,
           "label": "Tailwind CSS",
           "channels": [
-            { "id": 3, "label": "general" },
-            { "id": 4, "label": "plugins" },
+            { "id": 3, "label": "general", "unread": true },
+            { "id": 4, "label": "plugins", "unread": true },
             { "id": 5, "label": "help" },
             { "id": 6, "label": "internals" }
           ]
@@ -25,18 +25,18 @@
           "label": "Tailwind Labs",
           "channels": [
             { "id": 7, "label": "tailwind-ui" },
-            { "id": 8, "label": "headless-ui" },
+            { "id": 8, "label": "headless-ui", "unread": true },
             { "id": 9, "label": "refactoring-ui" },
-            { "id": 10, "label": "heroicons" }
+            { "id": 10, "label": "heroicons", "unread": true }
           ]
         },
         {
           "id": 4,
           "label": "Off topic",
           "channels": [
-            { "id": 11, "label": "design" },
-            { "id": 12, "label": "development" },
-            { "id": 13, "label": "random" }
+            { "id": 11, "label": "design", "unread": true },
+            { "id": 12, "label": "development", "unread": true },
+            { "id": 13, "label": "random", "unread": true }
           ]
         },
         {

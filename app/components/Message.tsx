@@ -2,7 +2,6 @@ import Image from "next/image";
 
 function Message() {
   return (
-    // <div className="flex min-h-screen items-center justify-center bg-gray-700 text-white">
     <div className="flex-grow">
       <div className="flex px-4 py-1 hover:bg-gray-800/30">
         <div className="relative mr-4 h-10 w-10 shrink-0 overflow-hidden rounded-full">
@@ -41,7 +40,6 @@ function Message() {
         </p>
       </div>
     </div>
-    // </div>
   );
 }
 

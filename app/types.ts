@@ -11,6 +11,7 @@ export interface Channel {
     | "Verified"
     | "Chevron"
     | "Discord";
+  unread?: boolean;
 }
 
 export interface Category {
