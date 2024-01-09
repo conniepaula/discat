@@ -1,4 +1,3 @@
-"use client";
 import { FC } from "react";
 
 import ChannelSidebar from "@/app/components/ChannelSidebar";
@@ -21,9 +20,6 @@ const page: FC<ProductPageProps> = async (props) => {
     .flat()
     .find((channel) => +channel.id === +cid);
 
-  // console.log(id, cid, channel);
-  // const categories = data["1"].categories as Array<Category>;
-
   return (
     <>
       <div className="flex w-60 flex-col bg-gray-800">
@@ -41,10 +37,11 @@ const page: FC<ProductPageProps> = async (props) => {
       </div>
       <div className="flex min-w-0 flex-1 flex-shrink flex-col bg-gray-700">
         <div className="flex h-12 items-center px-3 shadow-sm">
-          {" "}
           <div className="flex items-center">
             <Icons.Hashtag className="mx-2 h-6 w-6 font-semibold text-gray-400" />
-            <span className="font-title mr-2 text-white">{channel?.label}</span>
+            <span className="font-title mr-2 whitespace-nowrap text-white">
+              {channel?.label}
+            </span>
           </div>
           {channel?.description && (
             <>
@@ -67,6 +64,16 @@ const page: FC<ProductPageProps> = async (props) => {
             <button className="text-gray-200 hover:text-gray-100">
               <Icons.People className="mx-2 h-6 w-6" />
             </button>
+            <div className="relative mx-2">
+              <input
+                type="text"
+                placeholder="Search"
+                className="h-6 w-36 rounded border-none bg-gray-900 px-1.5 text-sm font-medium placeholder-gray-400"
+              />
+              <div className="absolute inset-y-0 right-0 flex items-center">
+                <Icons.Spyglass className="mr-1.5 h-4 w-4 text-gray-400" />
+              </div>
+            </div>
             <button className="text-gray-200 hover:text-gray-100">
               <Icons.Inbox className="mx-2 h-6 w-6" />
             </button>
@@ -75,10 +82,14 @@ const page: FC<ProductPageProps> = async (props) => {
             </button>
           </div>
         </div>
-        <div className=" flex-1 space-y-4 overflow-y-scroll p-3">
-          {[...Array(40)].map((_, i) => (
-            <Message key={i} />
-          ))}
+        <div className=" flex-1 overflow-y-scroll">
+          {channel?.messages.map((message, i) => {
+            const renderUser =
+              i === 0 || message.user !== channel?.messages[i - 1]?.user
+                ? true
+                : false;
+            return <Message key={message.id} renderUser={renderUser} {...message} />;
+          })}
         </div>
       </div>
     </>

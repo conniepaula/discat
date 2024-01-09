@@ -14,9 +14,10 @@ export type Icon =
   | "People"
   | "Inbox"
   | "QuestionCircle"
-  | "Hourglass";
+  | "Spyglass";
 
 export interface Message {
+  id: string;
   user: string;
   avatarUrl: string;
   date: string;

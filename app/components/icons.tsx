@@ -192,7 +192,7 @@ export function QuestionCircle(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export function Hourglass(props: React.SVGProps<SVGSVGElement>) {
+export function Spyglass(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" {...props}>
       <path

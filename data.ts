@@ -285,6 +285,7 @@ function getMessages() {
       return [...Array(getRandomInt(1, 4))].map(() => ({
         user,
         avatarUrl,
+        id: faker.string.uuid(),
         date: "01/15/2021",
         text: faker.lorem.sentences(3),
       }));
