@@ -27,7 +27,8 @@ function Channel() {
   );
   const params = useParams();
   const { id } = params;
-  const categories = data["1"].categories as Array<Category>;
+  const serverId = Number(id);
+  const categories = data[serverId - 1].categories as Array<Category>;
 
   const toggleCategory = (categoryId: number) => () => {
     setClosedCategories((closedCategories) =>

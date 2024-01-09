@@ -4,15 +4,16 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 
 interface NavLinkProps {
-  serverId?: string;
+  serverId?: number;
+  initialChannelId?: number;
   children?: React.ReactNode;
 }
 
 function NavLink(props: NavLinkProps) {
-  const { children, serverId = "" } = props;
+  const { children, initialChannelId, serverId = 0 } = props;
   const params = useParams();
   const currentServerId = params.id as string;
-  const href = !!serverId ? `/servers/${serverId}/channels/1` : "/";
+  const href = !!serverId ? `/servers/${serverId}/channels/${initialChannelId}` : "/";
 
   const active = !!currentServerId
     ? +currentServerId === +serverId

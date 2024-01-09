@@ -1,12 +1,16 @@
 import { faker } from "@faker-js/faker";
+import { format } from "date-fns";
 
-import { Data } from "@/app/types";
+import { Server } from "@/app/types";
 
 faker.seed(123);
 
-export const data: Data = {
-  1: {
-    label: "Tailwind CSS",
+
+export const data: Array<Server> = [
+  {
+    id: 1,
+    label: "Calico Cats",
+    img: "/servers/calico.jpeg",
     categories: [
       {
         id: 1,
@@ -148,8 +152,10 @@ export const data: Data = {
       },
     ],
   },
-  2: {
-    label: "Next.js",
+  {
+    id: 2,
+    label: "Norwegian Forest Cats",
+    img: "/servers/weegie.jpeg",
     categories: [
       {
         id: 6,
@@ -249,8 +255,10 @@ export const data: Data = {
       },
     ],
   },
-  3: {
-    label: "Mirage JS",
+  {
+    id: 3,
+    label: "Siberian Cats",
+    img: "/servers/siberian.jpeg",
     categories: [
       {
         id: 9,
@@ -268,7 +276,28 @@ export const data: Data = {
       },
     ],
   },
-};
+  {
+    id: 4,
+    label: "Bengal Cats",
+    img: "/servers/bengal.jpeg",
+    categories: [
+      {
+        id: 1,
+        label: "Text Channels",
+        channels: [
+          { id: 30, label: "general", messages: getMessages() },
+          { id: 31, label: "graphql", unread: true, messages: getMessages() },
+          {
+            id: 32,
+            label: "typescript",
+            unread: true,
+            messages: getMessages(),
+          },
+        ],
+      },
+    ],
+  },
+];
 
 function getRandomInt(min: number, max: number) {
   min = Math.ceil(min);
@@ -283,12 +312,14 @@ function getMessages() {
       let avatarUrl = faker.image.avatar();
 
       return [...Array(getRandomInt(1, 4))].map(() => ({
+        id: faker.string.uuid(),
         user,
         avatarUrl,
-        id: faker.string.uuid(),
-        date: "01/15/2021",
+        date: format(new Date(faker.date.past()), "MM/dd/yyyy"),
         text: faker.lorem.sentences(3),
       }));
     })
     .flat();
 }
+
+

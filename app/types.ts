@@ -40,10 +40,9 @@ export interface Category {
 }
 
 export interface Server {
+  id: number;
   label: string;
+  img: string;
   categories: Category[];
-}
 
-export interface Data {
-  [key: number]: Server;
 }

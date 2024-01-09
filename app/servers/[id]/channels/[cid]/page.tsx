@@ -14,7 +14,7 @@ const page: FC<ProductPageProps> = async (props) => {
   const { params } = props;
   const { id, cid } = params;
 
-  const server = data[id as keyof typeof data];
+  const server = data[id - 1];
   const channel = server?.categories
     .map((c) => c.channels)
     .flat()
@@ -28,7 +28,7 @@ const page: FC<ProductPageProps> = async (props) => {
             <Icons.Verified className="absolute h-4 w-4 text-gray-550" />
             <Icons.Check className="absolute h-4 w-4" />
           </div>
-          Server {id}
+          {server.label}
           <Icons.Chevron className="ml-auto h-[18px] w-[18px] opacity-80" />
         </button>
         <div className="flex-1 space-y-[21px] overflow-y-scroll pt-3 font-medium text-gray-300">
@@ -88,7 +88,9 @@ const page: FC<ProductPageProps> = async (props) => {
               i === 0 || message.user !== channel?.messages[i - 1]?.user
                 ? true
                 : false;
-            return <Message key={message.id} renderUser={renderUser} {...message} />;
+            return (
+              <Message key={message.id} renderUser={renderUser} {...message} />
+            );
           })}
         </div>
       </div>
