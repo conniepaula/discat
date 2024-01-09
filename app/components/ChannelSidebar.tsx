@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 
 import * as Icons from "@/components/icons";
 import { Category, Channel as ChannelType } from "@/app/types";
-import data from "@/data.json";
+import { data } from "@/data";
 
 interface ContainerProps {
   children: React.ReactNode;
