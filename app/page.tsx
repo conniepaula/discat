@@ -3,7 +3,7 @@ import Message from "@/components/Message";
 export default function Home() {
   return (
     <>
-      <div className="flex w-60 flex-col bg-gray-800">
+      <div className=" w-60 flex-col bg-gray-800 hidden ">
         <div className="flex h-12 items-center px-3 font-medium text-white shadow-md">
           Dashboard
         </div>
